@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Suhas Kanwar">
+        <meta name="keywords" content="Tic-Tac-Toe, game, online game, classic game, multiplayer, Xs and Os, Noughts and Crosses">
+        <meta name="Description" content="Play the classic Tic-Tac-Toe game. Enjoy a simple, fun, and interactive game with friends.">
+        <title>Xs and Os</title>
+        <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="assets/style_sheets/Project_011_styles.css">
+    </head>
+    <body>
+
+        <div class="container">
+
+            <header>
+                <h1 id="heading">The game of Xs and Os</h1>
+                <span id="heading-caption">A classical game of Tic-Tac-Toe</span>
+            </header>
+
+            <main class="game-container">
+                <div class="game-buttons">
+                    <button class="game-button X" id="game-button_01"></button>
+                    <button class="game-button X" id="game-button_02"></button>
+                    <button class="game-button X" id="game-button_03"></button>
+                    <button class="game-button X" id="game-button_04"></button>
+                    <button class="game-button X" id="game-button_05"></button>
+                    <button class="game-button X" id="game-button_06"></button>
+                    <button class="game-button X" id="game-button_07"></button>
+                    <button class="game-button X" id="game-button_08"></button>
+                    <button class="game-button X" id="game-button_09"></button>
+                </div>
+                <button class="reset-button">Reset Game</button>
+            </main>
+
+        </div>
+
+        <div class="msg-container">
+            <p id="msg-head"></p>
+            <p id="msg"></p>
+            <div class="restart-button">
+                <button class="new-game-button">
+                    <span></span>
+                    <p data-start="good luck!" data-text="start!" data-title="new game"></p>
+                </button>
+             </div>
+        </div>
+
+        <script src="scripts/app.js"></script>
+    </body>
+</html>

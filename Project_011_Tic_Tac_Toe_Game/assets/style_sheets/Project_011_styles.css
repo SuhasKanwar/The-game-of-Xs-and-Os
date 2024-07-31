@@ -1,0 +1,334 @@
+:root{
+  --heading-color: rgb(238, 229, 233);
+  --caption-color: rgb(146, 220, 229);
+  --button-color: rgb(241, 237, 244);
+  --X-color: rgb(229, 89, 52);
+  --O-color: #072ac8;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: calibri;
+}
+body{
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+header{
+  background-color: rgb(214, 73, 51);
+  width: 28rem;
+  height: 6rem;
+  margin-top: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.7rem;
+  padding-left: 2rem;
+  animation: slideFromLeft 1s ease forwards;
+  align-self: flex-start;
+}
+@keyframes slideFromLeft{
+  0%{
+      opacity: 0;
+      transform: translateX(-100%);
+  }
+  100%{
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+#heading{
+  color: var(--heading-color);
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+#heading-caption{
+  color: var(--caption-color);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.game-container{
+  align-self: center;
+  justify-self: center;
+  margin: 3.59rem auto 0;
+  width: 40%;
+  height: 65%;
+  /* background-color: beige; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+.game-buttons{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0.6rem;
+}
+.game-button{
+  height: 10rem;
+  width: 10rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--button-color);
+  font-size: 6rem;
+  font-weight: 600;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.27);
+  transition: transform 0.1s linear 0s, box-shadow 0.1s linear 0s;
+}
+.game-button:hover{
+  transform: scale(1.04);
+  /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+.X{
+  color: var(--X-color);
+}
+.O{
+  color: var(--O-color);
+}
+.reset-button {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 1.3rem;
+  border: 0;
+  user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+.reset-button:hover,
+.reset-button:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+.reset-button:active {
+  background: var(--color);
+  color: #fff;
+}
+.msg-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(36, 34, 34, 0.713);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 1rem; */
+    opacity: 0;
+    z-index: -1;
+    transition: all 1s ease 0s;
+}
+.show{
+    opacity: 1;
+    z-index: 0;
+}
+#msg-head{
+  color: var(--heading-color);
+  font-size: 6rem;
+  font-weight: 700;
+}
+#msg{
+    font-size: 2rem;
+    color: var(--caption-color);
+    font-weight: 550;
+    margin-bottom: 1rem;
+}
+.restart-button {
+    display: flex;
+    justify-content: space-around;
+    top: 20px;
+    left: 20px;
+}  
+.restart-button button {
+  width: 150px;
+  height: 50px;
+  background-color: white;
+  margin: 20px;
+  color: #568fa6;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.restart-button button:before, .restart-button button:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #44d8a4;
+  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.restart-button button:before {
+  right: 0;
+  top: 0;
+  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.restart-button button:after {
+  left: 0;
+  bottom: 0;
+}
+
+.restart-button button span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.restart-button button span:before, .restart-button button span:after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background-color: #44d8a4;
+  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.restart-button button span:before {
+  right: 0;
+  top: 0;
+  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.restart-button button span:after {
+  left: 0;
+  bottom: 0;
+}
+
+.restart-button button p {
+  padding: 0;
+  margin: 0;
+  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.restart-button button p:before, .restart-button button p:after {
+  position: absolute;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+  z-index: 1;
+  left: 0;
+}
+
+.restart-button button p:before {
+  content: attr(data-title);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.restart-button button p:after {
+  content: attr(data-text);
+  top: 150%;
+  color: #44d8a4;
+}
+
+.restart-button button:hover:before, .restart-button button:hover:after {
+  width: 100%;
+}
+
+.restart-button button:hover span {
+  z-index: 1;
+}
+
+.restart-button button:hover span:before, .restart-button button:hover span:after {
+  height: 100%;
+}
+
+.restart-button button:hover p:before {
+  top: -50%;
+  transform: rotate(5deg);
+}
+
+.restart-button button:hover p:after {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.restart-button button.start {
+  background-color: #44d8a4;
+  box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.restart-button button.start p:before {
+  top: -50%;
+  transform: rotate(5deg);
+}
+
+.restart-button button.start p:after {
+  color: white;
+  transition: all 0s ease;
+  content: attr(data-start);
+  top: 50%;
+  transform: translateY(-50%);
+  animation: start 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes start {
+  from {
+    top: -50%;
+  }
+}
+
+.restart-button button.start:hover:before, .restart-button button.start:hover:after {
+  display: none;
+}
+
+.restart-button button.start:hover span {
+  display: none;
+}
+
+.restart-button button:active {
+  outline: none;
+  border: none;
+}
+
+.restart-button button:focus {
+  outline: 0;
+}
