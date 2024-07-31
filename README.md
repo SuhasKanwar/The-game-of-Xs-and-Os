@@ -1,5 +1,7 @@
 # The game of Xs and Os
 
+![Project_011_Tic_Tac_Toe_Game](https://github.com/user-attachments/assets/93a20ec4-f9d5-491f-8860-a584be6109a0)
+
 A project to implement the classic Tic-Tac-Toe game using HTML, CSS, and JavaScript. The game allows two players to take turns placing their marks and determines the winner or a draw.
 
 ## Features
